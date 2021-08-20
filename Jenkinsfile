@@ -36,7 +36,6 @@ pipeline {
                       
                   }
               }
-        }
         stage("Cleaning up") {
               steps{
                     echo 'Cleaning up...'
@@ -44,3 +43,4 @@ pipeline {
               }
         }
      }
+}
