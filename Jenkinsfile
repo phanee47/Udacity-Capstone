@@ -27,7 +27,6 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  sh "kubectl set image deployments/capstone-project-cloud-devops capstone-project-cloud-devops=phanee47/capstone-app:latest"
                   sh "kubectl apply -f deployment/deployment.yml"
                   sh "kubectl get nodes"
                   sh "kubectl get deployment"
