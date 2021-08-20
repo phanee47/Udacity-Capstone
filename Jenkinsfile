@@ -27,10 +27,18 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  sh "pwd"   
-                  sh "docker images"    
+                  withAWS(credentials: 'aws', region: 'us-west-2') {
+                      sh "aws eks --region us-west-2 update-kubeconfig --name capstonecluster"
+                      sh "kubectl config use-context arn:aws:eks:us-west-2:395526031723:cluster/capstonecluster"
+                      sh "kubectl set image deployments/capstone-project-cloud-devops capstone-project-cloud-devops=phanee47/capstone-app:latest"
+                      sh "kubectl apply -f deployment/deployment.yml"
+                      sh "kubectl get nodes"
+                      sh "kubectl get deployment"
+                      sh "kubectl get pod -o wide"
+                      sh "kubectl get service/capstone-project-cloud-devops"
                   }
               }
+        }
         stage("Cleaning up") {
               steps{
                     echo 'Cleaning up...'
