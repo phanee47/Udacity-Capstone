@@ -27,7 +27,6 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  sh "kubectl apply -f ~/deployment/deployment.yml"
                   sh "kubectl get nodes"
                   sh "kubectl get deployment"
                   sh "kubectl get pod -o wide"
