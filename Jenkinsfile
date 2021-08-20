@@ -27,10 +27,7 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  sh "kubectl get nodes"
-                  sh "kubectl get deployment"
-                  sh "kubectl get pod -o wide"
-                  sh "kubectl get service/capstone-project-cloud-devops"    
+                  sh "pwd"   
                       
                   }
               }
