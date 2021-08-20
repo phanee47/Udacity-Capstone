@@ -28,7 +28,7 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   sh "pwd"   
-                      
+                  sh "docker images"    
                   }
               }
         stage("Cleaning up") {
