@@ -27,7 +27,7 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  sh "kubectl apply -f //home/phanee/Desktop/Udacity/Udacity-Capstone/deployment/deployment.yml"
+                  sh "kubectl apply -f /home/phanee/Desktop/Udacity/Udacity-Capstone/deployment/deployment.yml"
                   sh "kubectl get nodes"
                   sh "kubectl get deployment"
                   sh "kubectl get pod -o wide"
